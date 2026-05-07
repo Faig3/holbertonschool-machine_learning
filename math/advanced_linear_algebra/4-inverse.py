@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+import numpy as np
 """
 Module to calculate the inverse of a matrix.
 """
@@ -19,11 +19,14 @@ def inverse(matrix):
             TypeError: If matrix is not a list of lists.
             ValueError: If matrix is not a non-empty square matrix.
         """
-    if not isinstance(matrix, list) or len(matrix) == 0 or not all(isinstance(matrix, list) for row in matrix):
-        raise TypeError("Matrix must be a list of lists")
-    if len(matrix[0]) != len(matrix) or matrix == []:
-        raise ValueError("matrix must be a non-empty square matrix")
+    if not isinstance(matrix, list) or len(matrix) == 0:
+        raise TypeError("matrix must be a list of lists")
+
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a list of lists")
+
     n = len(matrix)
+
     if not all(len(row) == n for row in matrix):
         raise ValueError("matrix must be a non-empty square matrix")
 
@@ -40,14 +43,7 @@ def inverse(matrix):
 
 
 def _det(matrix):
-    """Calculate the determinant of a matrix (internal helper).
-
-    Args:
-        matrix: a list of lists.
-
-    Returns:
-        The determinant of the matrix.
-    """
+    """Calculate the determinant of a matrix (internal helper)."""
     n = len(matrix)
     if n == 1:
         return matrix[0][0]
@@ -79,6 +75,8 @@ def minor(matrix):
         result.append(row)
 
     return result
+
+
 def cofactor(matrix):
     """Calculate the cofactor matrix of a matrix."""
     n = len(matrix)
@@ -98,6 +96,8 @@ def cofactor(matrix):
         result.append(row)
 
     return result
+
+
 def _adj(matrix):
     """Calculate the adjugate matrix of a matrix."""
     n = len(matrix)
@@ -118,5 +118,4 @@ def _adj(matrix):
 
     adj = [[cof[j][i] for j in range(n)] for i in range(n)]
     return adj
-
 
