@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+"""Plot a line graph."""
 import numpy as np
 import matplotlib.pyplot as plt
 
-def line():
 
+def line():
+    """Plot y as a solid red line."""
     y = np.arange(0, 11) ** 3
     plt.figure(figsize=(6.4, 4.8))
 
