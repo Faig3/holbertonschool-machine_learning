@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
-"""Module that creates a pd.DataFrame from a dictionary.
 
-This script creates a DataFrame with two columns (First, Second)
-and four rows labeled A, B, C, and D.
 """
+doc
+"""
+
+
 import pandas as pd
 
-# Create a DataFrame from a dictionary with labeled rows
+'''doc'''
 df = pd.DataFrame(
     {
-        'First': [0.0, 0.5, 1.0, 1.5],    # float values
-        'Second': ['one', 'two', 'three', 'four']  # string values
+        "First": [0.0, 0.5, 1.0, 1.5],
+        "Second": ["one", "two", "three", "four"]
     },
-    index=['A', 'B', 'C', 'D']  # row labels
+    index=["A", "B", "C", "D"]
 )
-
-print(df)
