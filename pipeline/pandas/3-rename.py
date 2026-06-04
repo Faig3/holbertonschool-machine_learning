@@ -4,13 +4,13 @@ import pandas as pd
 
 
 def rename(df):
-    """Rename Timestamp column and convert to datetime, display Datetime and Close.
+    """Rename Timestamp to Datetime, convert values, show two columns.
 
     Args:
         df (pd.DataFrame): DataFrame containing a Timestamp column.
 
     Returns:
-        pd.DataFrame: Modified DataFrame with Datetime and Close columns only.
+        pd.DataFrame: Modified DataFrame with Datetime and Close columns.
     """
     # Rename Timestamp column to Datetime
     df = df.rename(columns={'Timestamp': 'Datetime'})
